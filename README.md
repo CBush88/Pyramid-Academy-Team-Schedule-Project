@@ -4,3 +4,4 @@ Team schedule project repo
 ## Members
 - riboney
 - CBush88
+- ijanett
