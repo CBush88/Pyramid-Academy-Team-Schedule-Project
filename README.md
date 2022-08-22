@@ -3,3 +3,4 @@ Team schedule project repo
 
 ## Members
 - riboney
+Christopher Bush
