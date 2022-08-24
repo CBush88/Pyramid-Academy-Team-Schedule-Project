@@ -24,7 +24,6 @@ public class Main {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
     }
 
     public static List<Speech> getEvents(File input) {
@@ -45,6 +44,7 @@ public class Main {
         }
         return outputList;
     }
+
     public static List<Speech> sortEventsByDuration(List<Speech> input){
         List<Speech> sorted = input.stream().filter(n -> !n.getDuration().equals("lightning"))
                 .sorted((s1, s2) -> Integer.compare(Integer.parseInt(s2.getDuration().substring(0,2)),
