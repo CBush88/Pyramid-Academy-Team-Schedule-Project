@@ -12,7 +12,10 @@ public class Main {
         List<Speech> speechList = getEvents(talksFile);
         speechList = sortEventsByDuration(speechList);
 
-        speechList.forEach(n -> System.out.println(n.getDuration()));
+        //speechList.forEach(n -> System.out.println(n.getDuration()));
+
+        Track track1 = new Track(speechList);
+        System.out.println(track1);
     }
 
     public static List<Speech> getEvents(File input) {
