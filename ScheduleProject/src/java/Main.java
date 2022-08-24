@@ -12,10 +12,19 @@ public class Main {
         List<Speech> speechList = getEvents(talksFile);
         speechList = sortEventsByDuration(speechList);
 
-        //speechList.forEach(n -> System.out.println(n.getDuration()));
+        try{
+            Track track1 = new Track(speechList);
+            System.out.println(track1);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            Track track2 = new Track(speechList);
+            System.out.println(track2);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
 
-        Track track1 = new Track(speechList);
-        System.out.println(track1);
     }
 
     public static List<Speech> getEvents(File input) {
