@@ -1,12 +1,13 @@
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         File talksFile = new File("ScheduleProject/src/resources/talks");
         List<Speech> speechList = getEvents(talksFile);
@@ -24,13 +25,13 @@ public class Main {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 
     public static List<Speech> getEvents(File input) {
         List<String> lines;
         List<Speech> outputList = new ArrayList<>();
         try {
-            Path path = Path.of(input.getPath());
+            Path path = Paths.get(input.getPath());
             lines = Files.readAllLines(path);
             for (String line : lines) {
                 String[] lineArr = line.split("\\s{2,}");
