@@ -1,36 +1,36 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Main extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/schedule-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 525);
+        stage.setTitle("Schedule");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void main(String[] args) {
-
-        File talksFile = new File("ScheduleProject/src/resources/talks");
-        List<Speech> speechList = getEvents(talksFile);
-        speechList = sortEventsByDuration(speechList);
-
-        try{
-            Track track1 = new Track(speechList);
-            System.out.println(track1);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        try{
-            Track track2 = new Track(speechList);
-            System.out.println(track2);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        launch();
     }
 
     public static List<Speech> getEvents(File input) {
         List<String> lines;
         List<Speech> outputList = new ArrayList<>();
         try {
-            Path path = Path.of(input.getPath());
+            Path path = Paths.get(input.getPath());
             lines = Files.readAllLines(path);
             for (String line : lines) {
                 String[] lineArr = line.split("\\s{2,}");
