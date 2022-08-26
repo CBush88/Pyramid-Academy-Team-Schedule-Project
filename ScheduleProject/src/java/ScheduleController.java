@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
         @FXML
         protected void onScheduleButtonClick() {
-            File talksFile = new File("src/main/resources/test");
+            File talksFile = new File("ScheduleProject/src/resources/talks");
             List<Speech> speechList = Main.getEvents(talksFile);
             speechList = Main.sortEventsByDuration(speechList);
 
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
                 Track track2 = new Track(speechList);
                 outputTextArea.setText("Track 1\n" + track1 + "\n" + "Track 2\n" + track2 + "\n");
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e.getMessage());
             }
         }
 
