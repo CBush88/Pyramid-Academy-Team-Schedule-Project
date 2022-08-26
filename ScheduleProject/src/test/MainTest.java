@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,7 +41,7 @@ class MainTest {
         List<Speech> speeches = Main.getEvents(testFile);
         List<Speech> sortedSpeeches = Main.sortEventsByDuration(speeches);
 
-        List<String> expected = List.of("60min","60min","60min","60min","60min",
+        List<String> expected = Arrays.asList("60min","60min","60min","60min","60min",
                 "45min","45min","45min","45min","45min","45min",
                 "30min","30min","30min","30min","30min","30min","30min","lightning");
 
